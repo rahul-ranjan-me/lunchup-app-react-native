@@ -1,2 +1,0 @@
-# lunchup
-Lunchup application
