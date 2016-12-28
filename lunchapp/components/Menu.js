@@ -4,6 +4,37 @@ import {
 	Text,
 	StyleSheet,
 } from 'react-native';
+import { List, ListItem } from 'react-native-elements';
+
+import clrs from '../utils/Clrs';
+
+const list = [
+	{
+		name: 'Setup a lunch',
+		icon: 'av-timer',
+		subtitle: 'Click to setup a new lunch',
+		key: 'setup',
+	},
+	{
+		name: 'Find partner',
+		icon: 'find-in-page',
+		subtitle: 'Search for a lunch partner',
+		key: 'search',
+	},
+	{
+		name: 'history',
+		icon: 'history',
+		subtitle: 'See lunches history',
+		key: 'history',
+	},
+	{
+		name: 'Rewards',
+		icon: 'card-giftcard',
+		subtitle: 'Check/Redeem your reward points',
+		key: 'rewards',
+	},
+]
+
 
 export default class Menu extends Component {
 	constructor(props) {
@@ -13,21 +44,18 @@ export default class Menu extends Component {
 	render() {
 		return (
 			<ScrollView scrollsToTop={false} style={styles.menu}>
-				<Text onPress={() => this.props.onItemSelected('first')}
-					style={styles.item}>
-					First
-				</Text>
-
-				<Text
-				onPress={() => this.props.onItemSelected('second')}
-					style={styles.item}>
-					Second
-				</Text>
-
-				<Text onPress={() => this.props.onItemSelected('third')}
-					style={styles.item}>
-					Third
-				</Text>
+				<List containerStyle={{marginBottom: 20}}>
+				  {
+				    list.map((l, i) => (
+				      <ListItem
+				        leftIcon={{name: l.icon}}
+				        onPress={() => this.props.onItemSelected(l.key)}
+				        key={i}
+				        title={l.name}
+				      />
+				    ))
+				  }
+				</List>
 			</ScrollView>
 		);
 	}
@@ -42,11 +70,11 @@ const styles = StyleSheet.create({
 		flex: 1,
 		width: window.width,
 		height: window.height,
-		padding: 20,
+		paddingTop: 20,
+		backgroundColor: clrs.lightPrimaryColor
     },
     item: {
 		fontSize: 16,
 		fontWeight: '300',
-		paddingTop: 20,
-    },    
+	},    
 });

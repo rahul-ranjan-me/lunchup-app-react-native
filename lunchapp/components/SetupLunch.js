@@ -4,12 +4,13 @@ import {
 	Text,
 	StyleSheet,
 } from 'react-native';
+import clrs from '../utils/Clrs';
 
-export default class FirstPage extends Component {
+export default class SetupLunch extends Component {
     render() {
         return (
             <View style={styles.page}>
-                <Text style={styles.pageContent}>First Page</Text>
+                <Text style={styles.pageContent}>SetupLunch Page</Text>
             </View>
         );    
   }
@@ -19,11 +20,12 @@ const styles = StyleSheet.create({
     page: {
         flex: 1,
         alignItems: 'center',
-        backgroundColor: '#fff'
+        backgroundColor: clrs.primaryColor
     },
     pageContent: {
         flex: 1,
         alignItems: 'center',
         top: 200,
+        color: clrs.primaryText
     },
 });

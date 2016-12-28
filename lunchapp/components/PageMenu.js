@@ -6,9 +6,9 @@ import {
     TouchableOpacity
 } from 'react-native';
 import Menu from './Menu';
-
-const SideMenu = require('react-native-side-menu');
-
+import SideMenu from 'react-native-side-menu';
+import { Icon } from 'react-native-elements'
+import clrs from '../utils/Clrs';
 
 export default class PageMenu extends Component {
 
@@ -65,7 +65,12 @@ class MenuButton extends Component {
 				  onPress={this.handlePress.bind(this)}
 				  style={this.props.style}>
 					  {this.props.children}
-					  <Image source = {{ uri: 'http://i.imgur.com/vKRaKDX.png', width: 40, height: 40, }} />
+					  <Icon
+                name='bars'
+                type='font-awesome'
+                style={styles.hamberger}
+                size = {40}
+                color='#000' />
 				</TouchableOpacity>      
 			</View>
 		);
@@ -74,7 +79,7 @@ class MenuButton extends Component {
 
 const styles = StyleSheet.create({
     menuButton: {
-        marginTop: 20,
-        backgroundColor: '#777'
+        backgroundColor: clrs.lightPrimaryColor,
+        width:40
     },
 });
