@@ -38,7 +38,6 @@ export default class PageMenu extends Component {
     render() {
 
         const menu = <Menu onItemSelected={this.onMenuItemSelected} navigator={this.props.navigator}/>;
-
         return (
             <SideMenu
               menu={menu}
@@ -46,7 +45,7 @@ export default class PageMenu extends Component {
               onChange={(isOpen) => this.updateMenuState(isOpen)}>
                 <MenuButton onPress={() => this.toggle()}/>
                 {this.props.children}
-            </SideMenu>                
+            </SideMenu>
         );
     }
 };

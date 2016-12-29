@@ -11,6 +11,7 @@ import SetupLunch from './SetupLunch';
 import SearchPartner from './SearchPartner';
 import History from './History';
 import Rewards from './Rewards';
+import ExpressInvite from './ExpressInvite';
 
 export default class Lunchup extends Component {
 
@@ -22,17 +23,19 @@ export default class Lunchup extends Component {
 	renderScene(route, nav) {
 		switch (route.id) {
 			case 'home':
-				return <PageMenu navigator={nav}><Home /></PageMenu>;
+				return <PageMenu navigator={nav}><Home navigator={nav} /></PageMenu>;
 			case 'setup':
 				return <PageMenu navigator={nav}><SetupLunch /></PageMenu>;
 			case 'search':
-				return <PageMenu navigator={nav}><SearchPartner /></PageMenu>;
+				return <PageMenu navigator={nav}><SearchPartner navigator={nav} /></PageMenu>;
 			case 'history':
 				return <PageMenu navigator={nav}><History /></PageMenu>;
 			case 'rewards':
 				return <PageMenu navigator={nav}><Rewards /></PageMenu>;
+			case 'expressInvite':
+				return <ExpressInvite navigator={nav} />;
 			default:
-				return <PageMenu navigator={nav}><Home /></PageMenu>;
+				return <PageMenu navigator={nav}><Home navigator={nav} /></PageMenu>;
 		}
 	}
 

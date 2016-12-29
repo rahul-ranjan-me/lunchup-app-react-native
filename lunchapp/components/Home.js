@@ -5,12 +5,19 @@ import {
 	StyleSheet,
 } from 'react-native';
 import clrs from '../utils/Clrs';
+import SearchPartner from './SearchPartner';
 
 export default class Home extends Component {
+    constructor(props){
+        super(props);
+        console.log(this.props);
+    }
+
     render() {
         return (
             <View style={styles.page}>
                 <Text style={styles.pageContent}>Home Page</Text>
+                <SearchPartner navigator={this.props.navigator}/>
             </View>
         );    
     }
