@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     page: {
         flex: 1,
         alignItems: 'center',
-        backgroundColor: clrs.primaryColor
+        backgroundColor: clrs.textPrimaryColor
     },
     pageContent: {
         flex: 1,

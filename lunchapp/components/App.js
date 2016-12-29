@@ -6,6 +6,7 @@ import clrs from '../utils/Clrs';
 
 import PageMenu from './PageMenu';
 
+import Home from './Home';
 import SetupLunch from './SetupLunch';
 import SearchPartner from './SearchPartner';
 import History from './History';
@@ -20,16 +21,18 @@ export default class Lunchup extends Component {
 
 	renderScene(route, nav) {
 		switch (route.id) {
+			case 'home':
+				return <PageMenu navigator={nav}><Home /></PageMenu>;
 			case 'setup':
-				return <PageMenu navigator={nav}><SetupLunch/></PageMenu>;
+				return <PageMenu navigator={nav}><SetupLunch /></PageMenu>;
 			case 'search':
-				return <PageMenu navigator={nav}><SearchPartner/></PageMenu>;
+				return <PageMenu navigator={nav}><SearchPartner /></PageMenu>;
 			case 'history':
-				return <PageMenu navigator={nav}><History/></PageMenu>;
+				return <PageMenu navigator={nav}><History /></PageMenu>;
 			case 'rewards':
-				return <PageMenu navigator={nav}><Rewards/></PageMenu>;
+				return <PageMenu navigator={nav}><Rewards /></PageMenu>;
 			default:
-				return <PageMenu navigator={nav}><SetupLunch/></PageMenu>;
+				return <PageMenu navigator={nav}><Home /></PageMenu>;
 		}
 	}
 
@@ -67,7 +70,7 @@ export default class Lunchup extends Component {
 				ref={this._setNavigatorRef}
 				initialRoute={{id: 'first'}}
 				renderScene={this.renderScene}
-				style={{backgroundColor: clrs.lightPrimaryColor}}
+				style={{backgroundColor: clrs.darkPrimaryColor}}
 				configureScene={(route) => {
 					if (route.sceneConfig) {
 						return route.sceneConfig;

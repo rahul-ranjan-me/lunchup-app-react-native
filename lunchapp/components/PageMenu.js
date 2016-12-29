@@ -61,17 +61,20 @@ class MenuButton extends Component {
 	render() {
 		return (
 			<View style={styles.menuButton}>
-				<TouchableOpacity 
-				  onPress={this.handlePress.bind(this)}
-				  style={this.props.style}>
-					  {this.props.children}
-					  <Icon
-                name='bars'
-                type='font-awesome'
-                style={styles.hamberger}
-                size = {40}
-                color='#000' />
-				</TouchableOpacity>      
+                <TouchableOpacity 
+                    onPress={this.handlePress.bind(this)}
+                    style={this.props.style}>
+
+                        {this.props.children}
+
+                        <Icon
+                        name='bars'
+                        type='font-awesome'
+                        style={styles.hamberger}
+                        size = {40}
+                        color='#000' />                        
+
+                </TouchableOpacity>      
 			</View>
 		);
 	}
@@ -79,7 +82,7 @@ class MenuButton extends Component {
 
 const styles = StyleSheet.create({
     menuButton: {
-        backgroundColor: clrs.lightPrimaryColor,
+        backgroundColor: clrs.darkPrimaryColor,
         width:40
     },
 });

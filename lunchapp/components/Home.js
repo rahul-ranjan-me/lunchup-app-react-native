@@ -6,11 +6,11 @@ import {
 } from 'react-native';
 import clrs from '../utils/Clrs';
 
-export default class History extends Component {
+export default class Home extends Component {
     render() {
         return (
             <View style={styles.page}>
-                <Text style={styles.pageContent}>History Page</Text>
+                <Text style={styles.pageContent}>Home Page</Text>
             </View>
         );    
     }
