@@ -5,7 +5,7 @@ import {
 	View,
 	StyleSheet,
 } from 'react-native';
-import { List, ListItem, Icon } from 'react-native-elements';
+import { List, ListItem, Icon, SocialIcon } from 'react-native-elements';
 
 import clrs from '../utils/Clrs';
 
@@ -58,7 +58,7 @@ export default class Menu extends Component {
 					  color='#fff' />
 					<Text style={styles.appTitle}>Lunchup</Text>
 				</View>
-				<List containerStyle={{marginBottom: 20, marginTop:36, backgroundColor:clrs.textPrimaryColor}}>
+				<List containerStyle={{ marginTop:36, backgroundColor:clrs.textPrimaryColor}}>
 				  {
 				    list.map((l, i) => (
 				      <ListItem
@@ -72,6 +72,23 @@ export default class Menu extends Component {
 				    ))
 				  }
 				</List>
+
+				<View style={styles.socialLinks}>
+					<SocialIcon type='twitter' />
+					<SocialIcon type='facebook' />
+					<SocialIcon type='gitlab' />
+				</View>
+
+				<View style={styles.badgeContainer}>
+					<Text style={{fontSize:15, marginLeft:35}}>You got bronze badge</Text>
+					<Icon
+					  name='sheriff-badge'
+					  type='foundation'
+					  color='#CD7F32'
+					  size={70}
+					  iconStyle={{margin:5}} />
+					<Text style={{fontSize:15, marginLeft:35, alignSelf:'center', flex:1}}>You need 200 points for silver badge</Text>
+				</View>
 			</ScrollView>
 		);
 	}
@@ -103,5 +120,19 @@ const styles = StyleSheet.create({
 		fontSize:20,
 		marginLeft:10,
 		color:clrs.textPrimaryColor
-	} 
+	},
+	socialLinks:{
+		flexDirection: 'row',
+		backgroundColor : clrs.textPrimaryColor,
+		justifyContent: 'center',
+		marginTop: -1
+	},
+	badgeContainer: {
+		backgroundColor : clrs.textPrimaryColor,
+		margin:5,
+		justifyContent: 'center',
+		width:230,
+		paddingTop:5,
+		paddingBottom:3
+	}
 });

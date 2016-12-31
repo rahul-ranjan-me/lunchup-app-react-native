@@ -25,7 +25,7 @@ export default class Lunchup extends Component {
 			case 'home':
 				return <PageMenu navigator={nav}><Home navigator={nav} /></PageMenu>;
 			case 'setup':
-				return <PageMenu navigator={nav}><SetupLunch /></PageMenu>;
+				return <PageMenu navigator={nav}><SetupLunch navigator={nav} /></PageMenu>;
 			case 'search':
 				return <PageMenu navigator={nav}><SearchPartner navigator={nav} /></PageMenu>;
 			case 'history':

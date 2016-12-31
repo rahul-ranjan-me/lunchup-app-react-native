@@ -6,7 +6,7 @@ import {
     ScrollView,
 } from 'react-native';
 import clrs from '../utils/Clrs';
-import { FormLabel, FormInput, Button, Icon } from 'react-native-elements'
+import { FormLabel, FormInput, Button, Icon } from 'react-native-elements';
 
 export default class ExpressInvite extends Component {
     constructor(props){
@@ -69,6 +69,7 @@ const styles = StyleSheet.create({
         padding:10,
         fontSize:18,
         fontWeight:'bold',
+        color:clrs.textPrimaryColor
     },
     pageContent: {
         flex: 1,
