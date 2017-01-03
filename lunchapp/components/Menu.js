@@ -4,10 +4,12 @@ import {
 	Text,
 	View,
 	StyleSheet,
+	Dimensions,
 } from 'react-native';
 import { List, ListItem, Icon, SocialIcon } from 'react-native-elements';
-
 import clrs from '../utils/Clrs';
+
+const {height, width} = Dimensions.get('window');
 
 const list = [
 	{
@@ -80,14 +82,14 @@ export default class Menu extends Component {
 				</View>
 
 				<View style={styles.badgeContainer}>
-					<Text style={{fontSize:15, marginLeft:35}}>You got bronze badge</Text>
+					<Text style={{fontSize:15, alignSelf:'center',}}>You got bronze badge</Text>
 					<Icon
 					  name='sheriff-badge'
 					  type='foundation'
 					  color='#CD7F32'
-					  size={70}
+					  size={89}
 					  iconStyle={{margin:5}} />
-					<Text style={{fontSize:15, marginLeft:35, alignSelf:'center', flex:1}}>You need 200 points for silver badge</Text>
+					<Text style={{fontSize:15, alignSelf:'center', flex:1}}>200 points for silver badge</Text>
 				</View>
 			</ScrollView>
 		);
@@ -131,7 +133,7 @@ const styles = StyleSheet.create({
 		backgroundColor : clrs.textPrimaryColor,
 		margin:5,
 		justifyContent: 'center',
-		width:230,
+		width:width-130,
 		paddingTop:5,
 		paddingBottom:3
 	}

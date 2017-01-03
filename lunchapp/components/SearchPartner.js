@@ -4,11 +4,14 @@ import {
 	Text,
 	StyleSheet,
     Image,
+    Dimensions,
 } from 'react-native';
 import { Button, Icon } from 'react-native-elements';
 import clrs from '../utils/Clrs';
 import Swiper from 'react-native-swiper';
 import availableLunches from '../utils/searchLunch';
+
+const {height, width} = Dimensions.get('window');
 
 export default class SearchPartner extends Component {
     constructor(props){
@@ -101,7 +104,7 @@ const styles = StyleSheet.create({
     },
     backgroundImage: {
         resizeMode: 'cover', // or 'stretch',
-        width:360,
+        width:width,
         height:null,
         flex:1,
     },
@@ -112,8 +115,8 @@ const styles = StyleSheet.create({
         zIndex:5,
         padding:10,
         backgroundColor:"rgba(255,255,255,.5)",
-        width:360,
-        height:350,
+        width:width,
+        height:360,
     },
     text: {
         color: '#333',

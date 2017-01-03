@@ -6,9 +6,12 @@ import {
     ScrollView,
     Image,
     ListView,
+    Dimensions,
 } from 'react-native';
 import clrs from '../utils/Clrs';
 import history from '../utils/history';
+
+const {height, width} = Dimensions.get('window');
 
 export default class History extends Component {
     constructor(props){
@@ -99,6 +102,7 @@ const styles = StyleSheet.create({
     timeStick:{
         width:20,
         marginRight:20,
+        height:5,
         borderBottomWidth: 4,
         borderBottomColor: clrs.lightPrimaryColor,
     },
@@ -107,7 +111,7 @@ const styles = StyleSheet.create({
     },
     backgroundImage: {
         resizeMode: 'cover', // or 'stretch',
-        width:320,
+        width: width-40,
         height:200,
         
     },

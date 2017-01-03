@@ -15,13 +15,13 @@ import { type, countries } from '../utils/setupLunch';
 export default class SetupLunch extends Component {
     constructor(props){
         super(props);
-        this.state = {date:new Date()}
+        this.state = {date:new Date(), location: 'IN', lunchType: 'lunch'}
     }
 
     onSetupLunch(){
         alert('Your lunch has been setup with following details: \nLunch type: '+this.state.lunchType+'\n'+
-            'Location: '+this.state.location+'\n'+
-            'Disucssion topic: '+this.refs.forminput.refs.discussionTopic._lastNativeText+'\n'+
+            'Location: '+this.refs.locationInput.refs.location._lastNativeText+'\n'+
+            'Disucssion topic: '+this.refs.topicInput.refs.discussionTopic._lastNativeText+'\n'+
             'Location: '+this.state.date);
         this.props.navigator.replace({ id: 'search' });
     }
@@ -47,31 +47,28 @@ export default class SetupLunch extends Component {
                         </View>
 
                         <FormLabel>Location:</FormLabel>
-                        <View style={styles.pickerContainer}>
-                            <Picker
-                              selectedValue={this.state.location}
-                              onValueChange={(type) => this.setState({location: type})}
-                              style={styles.pickerStyle}>
-                              {countries.map((item, i) => (
-                                  <Picker.Item label={item.name} key={i} style={styles.pickerItem} value={item.code} />
-                              ))}
-                            </Picker>
-                        </View>
+                        <FormInput ref='locationInput' textInputRef="location" />
 
                         <FormLabel>Discussion topic:</FormLabel>
-                        <FormInput ref='forminput' textInputRef="discussionTopic" />
+                        <FormInput ref='topicInput' textInputRef="discussionTopic" />
 
                         <FormLabel>Time:</FormLabel>
                         <View style={styles.calendarContainer}>
                             <DatePicker
                                 style={styles.calendarStyle}
                                 date={this.state.date}
-                                mode="date"
+                                mode="datetime"
                                 placeholder="select date"
-                                format="DD-MM-YYYY"
+                                format="YYYY-MM-DD HH:mm"
                                 minDate={this.state.date}
                                 confirmBtnText="Confirm"
                                 cancelBtnText="Cancel"
+                                customStyles = {{
+                                    dateInput: {
+                                        marginLeft: 6,
+                                        marginTop: 20,
+                                    }
+                                }}
                                 onDateChange={(date) => {this.setState({date: date})}}
                             />
                         </View>
@@ -112,7 +109,6 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
     },
     pickerStyle:{
-        height: 36,
         color: '#86939e',
     },
     pickerItem:{
